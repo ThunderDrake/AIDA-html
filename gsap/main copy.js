@@ -485,7 +485,7 @@ if(closeTouch){
   });
 }
   document.addEventListener("DOMContentLoaded", init);
-// about 
+ 
 gsap.registerPlugin(ScrollTrigger);
 
 
