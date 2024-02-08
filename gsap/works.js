@@ -44,7 +44,6 @@ function navColorBg() {
     },
   });
 }
-
 function navColorBgLight() {
   ScrollTrigger.create({
     trigger: "[hero-light]",
@@ -57,7 +56,6 @@ function navColorBgLight() {
     },
   });
 }
-
 window.addEventListener("scroll", () => {
   scrollPositionDark() > lastScrollDark &&
   !containHideDark() &&
@@ -113,7 +111,7 @@ function moveLogoEmeil() {
 function init() {
   navColorBg(), navColorBgLight(), moveLogoPattern(), moveLogoEmeil(), cursor();
 }
-function cursor1() {
+function cursor() {
   var e = document.querySelectorAll(".splide"),
     t = document.querySelectorAll(".works-link_current.project"),
     r = document.getElementById("cursor");
