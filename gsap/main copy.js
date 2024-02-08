@@ -627,6 +627,17 @@ function navColorBg1() {
   });
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  new Splide(".splide", {
+    type: "loop",
+    drag: "free",
+    gap: "1.94rem",
+    autoWidth: !0,
+    arrows: !1,
+    pagination: !1,
+  }).mount();
+});
+
 function init() {
   const allTrysy = document.querySelectorAll(".moving-text-wrapp");
 
@@ -714,7 +725,7 @@ if(document.querySelector(".isughts-item") && document.querySelector(".image-con
 gsap.set(imgInsight, { scale: 1.02, transformOrigin: "center center" }),
   insightItem.forEach((e) => {
     var t = e.querySelector(".image img");
-    let o = e.querySelector(".is-h3"),
+    let o = e.querySelector(".is-h3");
     if(o && t){
       r = e.querySelector(".insights-link"),
       a = gsap.timeline({ paused: "true", reversed: "true" });
