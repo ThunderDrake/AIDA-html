@@ -329,6 +329,7 @@ mmApproach.add("(min-width: 800px)", () => {
       let o = t.querySelector(".plusminus"),
         r = t.querySelector(".item-icon-text"),
         a = t.querySelector(".item-icon-text_close");
+      if(o && r && a){
       t.addEventListener("click", () => {
         o.classList.toggle("active"),
           r.classList.toggle("active"),
@@ -338,6 +339,7 @@ mmApproach.add("(min-width: 800px)", () => {
           ? (e.style.maxHeight = null)
           : (e.style.maxHeight = e.scrollHeight + "px");
       });
+    }
     });
   });
 let cardItem = selectAll(".works_grid-item"),

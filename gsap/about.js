@@ -89,6 +89,7 @@ menuOpen.to(".nav_open", { display: "flex" }),
     "0"
   ),
   menuToogle.addEventListener("click", menuClick);
+  
 let allLink = gsap.utils.toArray(".awards-link_wrap"),
   allImg = gsap.utils.toArray(".awards-media"),
   largeImage = document.querySelector("[awards-media]"),
@@ -195,9 +196,11 @@ function init() {
     moveLogoEmeil(),
     navChanceColor();
 }
+
 function resizeInit() {
   init();
 }
+
 mm.add("(min-width: 992px)", () => {
   initImageParallax(), moveRect();
 }),
