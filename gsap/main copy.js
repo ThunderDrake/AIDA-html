@@ -629,6 +629,10 @@ function init() {
     initAwardsHover();
   }
 
+  if(document.querySelector(".moving-text-wrapp")){
+    moveLogoEmeil2();
+  }
+
   if(document.querySelector(".services-hero-fix-wrap")){
     navColorBg2();
   }
@@ -688,6 +692,7 @@ gsap.set(imgInsight, { scale: 1.02, transformOrigin: "center center" }),
   insightItem.forEach((e) => {
     var t = e.querySelector(".image img");
     let o = e.querySelector(".is-h3"),
+    if(o && t){
       r = e.querySelector(".insights-link"),
       a = gsap.timeline({ paused: "true", reversed: "true" });
     a.to(t, { scale: 1, duration: 0.8, ease: "power.inOut" }),
@@ -701,6 +706,7 @@ gsap.set(imgInsight, { scale: 1.02, transformOrigin: "center center" }),
           r.classList.remove("link-underline"),
           o.classList.remove("title-underline");
       });
+    }
   });
 }
   $(".slider-main-component").each(function (e) {
@@ -857,6 +863,18 @@ function moveLogoEmeil1() {
   e.to(".we-do-email-item_wrap", { xPercent: -25 });
 }
 
+function moveLogoEmeil2() {
+  let e = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".moving-text-wrapp",
+      start: "top bottom",
+      end: "bottom top-=200%",
+      scrub: 1,
+    },
+  });
+  e.to(".we-do-email-item_wrap", { xPercent: -25 });
+}
+
 
 function moveLogoEmeil() {
   let e = gsap.timeline({
@@ -945,16 +963,20 @@ function navColorBg2() {
         start: "top 10%",
         end: "bottom 10%",
         onEnter: function () {
-          document.querySelector(".logo-wrapper").classList.remove("dark-nav"),
+          if(document.querySelector(".logo-wrapper") && document.querySelector(".nav-btn-wrap").classList.remove("dark-nav")){
+            document.querySelector(".logo-wrapper").classList.remove("dark-nav"),
             document
               .querySelector(".nav-btn-wrap")
               .classList.remove("dark-nav");
+          }
         },
         onEnterBack: function () {
-          document.querySelector(".logo-wrapper").classList.remove("dark-nav"),
+          if(document.querySelector(".logo-wrapper") && document.querySelector(".nav-btn-wrap").classList.remove("dark-nav")){
+            document.querySelector(".logo-wrapper").classList.remove("dark-nav"),
             document
               .querySelector(".nav-btn-wrap")
               .classList.remove("dark-nav");
+          }
         },
       });
     });
