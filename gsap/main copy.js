@@ -643,8 +643,8 @@ function init() {
 
   for(let i = 0; i < allTrysy.length; i++){
     allTrysy[i].classList.add("moving-text-wrapp" + i);
-    if(allTrysy[i].document.querySelector(".we-do-email-item_wrap")){
-      allTrysy[i].document.querySelector(".we-do-email-item_wrap").classList.add("we-do-email-item_wrap" + i);
+    if(allTrysy[i].querySelector(".we-do-email-item_wrap")){
+      allTrysy[i].querySelector(".we-do-email-item_wrap").classList.add("we-do-email-item_wrap" + i);
     }
     let e = gsap.timeline({
       scrollTrigger: {
