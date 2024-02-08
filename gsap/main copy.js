@@ -628,6 +628,25 @@ function navColorBg1() {
 }
 
 function init() {
+  const allTrysy = document.querySelectorAll(".moving-text-wrapp");
+
+  for(let i = 0; i < allTrysy.length; i++){
+    allTrysy[i].classList.add("moving-text-wrapp" + i);
+    if(allTrysy[i].document.querySelector(".we-do-email-item_wrap")){
+      allTrysy[i].document.querySelector(".we-do-email-item_wrap").classList.add("we-do-email-item_wrap" + i);
+    }
+    let e = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".moving-text-wrapp" + i,
+        start: "top bottom",
+        end: "bottom top-=200%",
+        scrub: 1,
+      },
+    });
+    e.to(".we-do-email-item_wrap" + i, { xPercent: -25 });
+  }
+
+
   if(document.querySelector(".awards-media")){
     initAwardsHover();
   }
@@ -894,18 +913,9 @@ function moveLogoEmeil1() {
   e.to(".we-do-email-item_wrap", { xPercent: -25 });
 }
 
-function moveLogoEmeil2() {
-  console.log("трусы2");
-  let e = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".moving-text-wrapp",
-      start: "top bottom",
-      end: "bottom top-=200%",
-      scrub: 1,
-    },
-  });
-  e.to(".we-do-email-item_wrap", { xPercent: -25 });
-}
+
+
+
 
 
 function moveLogoEmeil() {
