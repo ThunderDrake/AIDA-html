@@ -884,7 +884,8 @@ if(document.querySelector(".works_grid-item")){
 gsap.set(img1, { scale: 1.1, transformOrigin: "center center" }),
   cardItem1.forEach((e) => {
     var t = e.querySelector(".image img");
-    let r = e.querySelector(".link-tilte"),
+    let r = e.querySelector(".link-tilte");
+    if(t && r){
       n = gsap.timeline({ paused: "true", reversed: "true" });
     n.to(t, { scale: 1, duration: 1.4, ease: "power2.inOut" }),
       e.addEventListener("mouseenter", () => {
@@ -898,6 +899,7 @@ gsap.set(img1, { scale: 1.1, transformOrigin: "center center" }),
             r.classList.remove("animate-out");
           }, 300);
       });
+    }
   });
 
 }
