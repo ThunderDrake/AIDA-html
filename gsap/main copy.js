@@ -807,7 +807,7 @@ function splideSlide992(){
     let e = selectAll(".splide__slide");
       e.forEach((e) => {
         var t = e.querySelector(".image img");
-        let r = e.querySelector(".link-tilte"),
+        let r = e.querySelector(".link-tilte");
         if(t && r){
             gsap.set(t, { scale: 1.1, transformOrigin: "center center" }),
             n = gsap.timeline({ paused: "true", reversed: "true" });
