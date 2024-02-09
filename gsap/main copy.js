@@ -132,7 +132,7 @@ function trysyGsap(){
     infoCallItem = gsap.utils.toArray(".call-info-item");
 
     if(!callItem && !infoCallItem){
-      return();
+      return;
     }
 
     infoCallItem[0].classList.add("is-active"),
