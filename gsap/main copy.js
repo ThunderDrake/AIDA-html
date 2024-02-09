@@ -1,113 +1,20 @@
 gsap.registerPlugin(ScrollTrigger);
-const select = (e) => document.querySelector(e),
-  selectAll = (e) => document.querySelectorAll(e);
-  if(select(".loader-green-line")){
-    progresLine = select(".loader-green-line");
-  }
 
-  if(select(".lottie-wrapper")){
-    logoLottie = select(".lottie-wrapper");
-  }
+// start переменные
 
-  if(select(".loader")){
-    loaderWrap = select(".loader");
-  }
-
-
-  let lastScroll = 0;
+let lastScroll = 0;
 const defaultOffset = 0;
+progresLine = select(".loader-green-line");
+logoLottie = select(".lottie-wrapper");
+loaderWrap = select(".loader")
+let mmAbautTab = gsap.matchMedia();
+
+ // start переменные
+
+const select = (e) => document.querySelector(e),
+selectAll = (e) => document.querySelectorAll(e);
 
 
-
-
-  if(document.querySelector(".heder-dark .nav-btn-wrap")){
-    let el = document.createElement("div");
-el.innerHTML += "<style>html:has(.nav.nav-for-dark) .heder-light{ display: none;   }  html:has(.heder-dark .active-menu) .heder-light{ display: none;   }</style>";
-  document.querySelector("header").append(el);
-    menuToogleDark = select(".heder-light .nav-btn-wrap");
-    menuToogleDark.addEventListener("click", menuClick);
-    let menuToogleLight = select(".heder-dark .nav-btn-wrap");
-    menuToogleLight.addEventListener("click", menuClick);
-    let lastScrollDark = 0;
-  const defaultOffsetDark = 0,
-    headerDark = document.querySelector(".heder-dark .nav"),
-    scrollPositionDark = () =>
-      window.pageYOffset || document.documentElement.scrollTop,
-    containHideDark = () => headerDark.classList.contains("hide");
-
-    window.addEventListener("scroll", () => {
-      scrollPositionDark() > lastScrollDark &&
-      !containHideDark() &&
-      scrollPositionDark() > defaultOffsetDark
-        ? headerDark.classList.add("hide")
-        : scrollPositionDark() < lastScrollDark &&
-          containHideDark() &&
-          headerDark.classList.remove("hide"),
-        (lastScrollDark = scrollPositionDark());
-    }),
-      gsap.utils.toArray("[section-light]").forEach((e) => {
-        ScrollTrigger.create({
-          trigger: e,
-          start: "top 10%",
-          end: "bottom 10%",
-          onEnter: function () {
-            document.querySelector(".logo-wrapper").classList.remove("dark-nav"),
-              document.querySelector(".nav-btn-wrap").classList.remove("dark-nav");
-          },
-          onEnterBack: function () {
-            document.querySelector(".logo-wrapper").classList.remove("dark-nav"),
-              document.querySelector(".nav-btn-wrap").classList.remove("dark-nav");
-          },
-        });
-      });
-
-      headerLight = document.querySelector(".heder-light .nav"),
-      scrollPosition = () =>
-        window.pageYOffset || document.documentElement.scrollTop,
-      containHide = () => headerLight.classList.contains("hide");
-    window.addEventListener("scroll", () => {
-      scrollPosition() > lastScroll &&
-      !containHide() &&
-      scrollPosition() > defaultOffset
-        ? headerLight.classList.add("hide")
-        : scrollPosition() < lastScroll &&
-          containHide() &&
-          headerLight.classList.remove("hide"),
-        (lastScroll = scrollPosition());
-    });
-
-    window.addEventListener("scroll", () => {
-      scrollPositionDark() > lastScrollDark &&
-      !containHideDark() &&
-      scrollPositionDark() > defaultOffsetDark
-        ? headerDark.classList.add("hide")
-        : scrollPositionDark() < lastScrollDark &&
-          containHideDark() &&
-          headerDark.classList.remove("hide"),
-        (lastScrollDark = scrollPositionDark());
-    });
-
-    
-  } else{
-    if(document.querySelector(".nav")){
-      header = document.querySelector(".nav");
-      scrollPosition = () =>
-        window.pageYOffset || document.documentElement.scrollTop,
-      containHide = () => header.classList.contains("hide");
-    window.addEventListener("scroll", () => {
-      scrollPosition() > lastScroll &&
-      !containHide() &&
-      scrollPosition() > defaultOffset
-        ? header.classList.add("hide")
-        : scrollPosition() < lastScroll &&
-          containHide() &&
-          header.classList.remove("hide"),
-        (lastScroll = scrollPosition());
-      
-    });
-    }
-    
-  }
 
 
   function navColorBgLight() {
@@ -333,6 +240,7 @@ function initLoader() {
     o.add(e), o.add(t);
   }
 }
+
 function navColorBg() {
   ScrollTrigger.create({
     trigger: "[hero]",
@@ -345,6 +253,7 @@ function navColorBg() {
     },
   });
 }
+
 function navChanceColor() {
   gsap.utils.toArray("[section-dark]").forEach((e) => {
     ScrollTrigger.create({
@@ -407,7 +316,7 @@ menuOpen.to(".nav_open", { display: "flex" }),
 
 
 
-let mmAbautTab = gsap.matchMedia();
+
 mmAbautTab.add("(min-width: 800px)", () => {
   let e = selectAll(".abaut_item-subtitle");
   e.forEach((t) => {
