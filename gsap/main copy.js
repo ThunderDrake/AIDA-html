@@ -130,11 +130,9 @@ function trysyGsap(){
   function callItems(){
     let callItem = gsap.utils.toArray(".call-item"),
     infoCallItem = gsap.utils.toArray(".call-info-item");
-
     if(!callItem && !infoCallItem){
       return;
     }
-
     infoCallItem[0].classList.add("is-active"),
       callItem[0].classList.add("is-active"),
       callItem.forEach((t, o) => {
