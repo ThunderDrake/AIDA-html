@@ -8,16 +8,62 @@ progresLine = select(".loader-green-line");
 logoLottie = select(".lottie-wrapper");
 loaderWrap = select(".loader")
 let mmAbautTab = gsap.matchMedia();
+let mm = gsap.matchMedia();
 
- // start переменные
+ // end переменные
 
+ // start функции
 const select = (e) => document.querySelector(e),
 selectAll = (e) => document.querySelectorAll(e);
 
+function init() {
+  splideInit();
+  initAwardsHover();
+  navColorBg2();
+  moveLogoEmeil1();
+  cursor1();
+  navColorBgLight();
+  navColorBg1();
+  navColorBg() 
+  initLoader();
+  pin();
+  navColorBg();
+  moveReting();
+  moveLogoPattern();
+  moveLogoPattern1();
+  cursor();
+  moveLogoEmeil();
+}
 
+
+function trysyGsap(){
+  const allTrysy = document.querySelectorAll(".moving-text-wrapp");
+
+  if(allTrysy.length == 0){
+    return;
+  }
+
+  for(let i = 0; i < allTrysy.length; i++){
+    allTrysy[i].classList.add("moving-text-wrapp" + i);
+    if(allTrysy[i].querySelector(".we-do-email-item_wrap")){
+      allTrysy[i].querySelector(".we-do-email-item_wrap").classList.add("we-do-email-item_wrap" + i);
+    }
+    let scroolSpeed = window.innerWidth / 1920 * -25;
+    let e = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".moving-text-wrapp" + i,
+        start: "top bottom",
+        end: "bottom top-=200%",
+        scrub: 1,
+      },
+    });
+    e.to(".we-do-email-item_wrap" + i, { xPercent: scroolSpeed });
+  }
+}
 
 
   function navColorBgLight() {
+    
     ScrollTrigger.create({
       trigger: "[hero-light]",
       start: "bottom top",
@@ -240,7 +286,6 @@ function initLoader() {
     o.add(e), o.add(t);
   }
 }
-
 function navColorBg() {
   ScrollTrigger.create({
     trigger: "[hero]",
@@ -253,7 +298,6 @@ function navColorBg() {
     },
   });
 }
-
 function navChanceColor() {
   gsap.utils.toArray("[section-dark]").forEach((e) => {
     ScrollTrigger.create({
@@ -536,98 +580,25 @@ function navColorBg1() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  new Splide(".splide", {
-    type: "loop",
-    drag: "free",
-    gap: "1.94rem",
-    autoWidth: !0,
-    arrows: !1,
-    pagination: !1,
-  }).mount();
-});
-
-function init() {
-  const allTrysy = document.querySelectorAll(".moving-text-wrapp");
-
-  for(let i = 0; i < allTrysy.length; i++){
-    allTrysy[i].classList.add("moving-text-wrapp" + i);
-    if(allTrysy[i].querySelector(".we-do-email-item_wrap")){
-      allTrysy[i].querySelector(".we-do-email-item_wrap").classList.add("we-do-email-item_wrap" + i);
-    }
-    let e = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".moving-text-wrapp" + i,
-        start: "top bottom",
-        end: "bottom top-=200%",
-        scrub: 1,
-      },
-    });
-    e.to(".we-do-email-item_wrap" + i, { xPercent: -25 });
+function splideInit(){
+  if(!select(".splide")){
+    return;
   }
-
-
-  if(document.querySelector(".awards-media")){
-    initAwardsHover();
-  }
-
-  if(document.querySelector(".moving-text-wrapp")){
-    console.log("трусы1");
-    moveLogoEmeil2();
-  }
-
-  if(document.querySelector(".services-hero-fix-wrap")){
-    navColorBg2();
-  }
-  
-  if(document.querySelector(".services_email-wrapper")){
-    moveLogoEmeil1();
-  }
-
-  if(document.querySelector(".works-link_current.project")){
-    cursor1();
-  }
-
-  if(document.querySelector(".heder-light .nav-btn-wrap")){
-    navColorBgLight();
-  }
-
-  if(document.querySelector(".heder-dark .nav-btn-wrap")){
-    navColorBg1();
-  }
-
-  navColorBg() 
-  
-  if(document.querySelector(".loader")){
-    initLoader();
-  }
-
-  if(document.querySelector('.abaut-right-wrapper')){
-    pin();
-  }
-    if(document.querySelector(".nav")){
-      navColorBg();
-    }
-    if(document.querySelector(".approach-oberlay-wrap")){
-      moveReting();
-    }
-
-    if(document.querySelector(".call-section-sticky")){
-      moveLogoPattern();
-    }
-
-    if(document.querySelector('.we-do_section')){
-      moveLogoPattern1();
-    }
-    
-    if(document.querySelector(".slider-main-component")){
-      cursor();
-    }
-
-    if(document.querySelector(".we-do_email-wrapper")){
-      moveLogoEmeil();
-    }
+  document.addEventListener("DOMContentLoaded", function () {
+    new Splide(".splide", {
+      type: "loop",
+      drag: "free",
+      gap: "1.94rem",
+      autoWidth: !0,
+      arrows: !1,
+      pagination: !1,
+    }).mount();
+  });
 }
+
+
+
+
 if(document.querySelector(".isughts-item") && document.querySelector(".image-content-block img")){
   let insightItem = selectAll(".isughts-item");
   imgInsight = selectAll(".image-content-block img");
@@ -736,7 +707,7 @@ function initAwardsHover() {
   });
 }
 
-let mm = gsap.matchMedia();
+
 if(document.querySelector(".splide__slide")){
 
 
@@ -943,4 +914,6 @@ function navColorBg2() {
       });
     });
 }
+
+
 document.addEventListener("DOMContentLoaded", init);
