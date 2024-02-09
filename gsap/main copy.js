@@ -51,9 +51,9 @@ function init() {
   initImageParallax();
   moveRect();
   mmParalax();
-  moveLogoPattern1();
-  moveLogoEmeil1();
-  moveLogoEmeil();
+// moveLogoPattern1();
+ // moveLogoEmeil1();
+ // moveLogoEmeil();
   workGrids();
   splideCards();
   navColorBg2();
