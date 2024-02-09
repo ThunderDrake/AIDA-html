@@ -588,23 +588,29 @@ function cursor1() {
       return;
     }
   e.forEach(function (e) {
-    e.addEventListener("mouseenter", function () {
-      r.classList.add("drag-cursor");
-    });
+    if(r){
+      e.addEventListener("mouseenter", function () {
+        r.classList.add("drag-cursor");
+      });
+    }
   }),
     t.forEach(function (e) {
+      if(r){
       e.addEventListener("mouseenter", function () {
         r.classList.toggle("drag-cursor");
       }),
         e.addEventListener("mouseleave", function () {
           r.classList.toggle("drag-cursor");
         });
-    }),
+      }
+    });
+    if(document.querySelector(".splide")){
     document
       .querySelector(".splide")
       .addEventListener("mouseleave", function () {
         r.classList.remove("drag-cursor");
-      });
+      });  
+    }
 }
 
 
