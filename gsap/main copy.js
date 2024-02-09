@@ -61,14 +61,14 @@ function init() {
 
 
 function scroolSpeed(num){
-  if(num >= 0){
-    console.log(Math.pow(num, window.innerWidth / 1920));
-    return  Math.pow(num, window.innerWidth / 1920);
-  } else{
-    num = num * -1;
-    console.log(-1 * Math.pow(num, window.innerWidth / 1920));
-    return -1 * Math.pow(num, window.innerWidth / 1920);
-  }
+ // if(num >= 0){
+    console.log(num * window.innerWidth / 324);
+    return  num * window.innerWidth / 324;
+  //} else{
+  //  num = num * -1;
+ //   console.log(-1 * Math.pow(num, window.innerWidth / 1920));
+ //  return -1 * Math.pow(num, window.innerWidth / 1920);
+ // }
 } 
 
 
