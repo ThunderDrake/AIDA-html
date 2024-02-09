@@ -943,7 +943,8 @@ function resizeInit() {
 
 function workGrids(){
   let cardItem1 = selectAll(".works_grid-item");
-  if(cardItem1.length == 0){
+  img1 = selectAll(".image img");
+  if(cardItem1.length == 0 && img1== 0){
     return;
   }
   gsap.set(img1, { scale: 1.1, transformOrigin: "center center" }),
@@ -1047,3 +1048,15 @@ window.addEventListener("resize", () => {
 
 
 document.addEventListener("DOMContentLoaded", init);
+
+
+
+
+
+
+
+
+
+
+
+
