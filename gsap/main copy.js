@@ -60,6 +60,12 @@ function init() {
 }
 
 
+function scroolSpeed(num){
+  return window.innerWidth / 1920 * num;
+} 
+
+
+
 function headerAnimate(){
   const header = document.querySelector(".nav");
   let lastScroll = 0;
@@ -97,7 +103,7 @@ function trysyGsap(){
     if(allTrysy[i].querySelector(".we-do-email-item_wrap")){
       allTrysy[i].querySelector(".we-do-email-item_wrap").classList.add("we-do-email-item_wrap" + i);
     }
-    let scroolSpeed = window.innerWidth / 1920 * -25;
+   
     let e = gsap.timeline({
       scrollTrigger: {
         trigger: ".moving-text-wrapp" + i,
@@ -106,7 +112,7 @@ function trysyGsap(){
         scrub: 1,
       },
     });
-    e.to(".we-do-email-item_wrap" + i, { xPercent: scroolSpeed });
+    e.to(".we-do-email-item_wrap" + i, { xPercent: scroolSpeed(-25) });
   }
 }
 
@@ -576,7 +582,7 @@ function moveLogoPattern() {
       scrub: 2,
     },
   });
-  e.to(".call-bg-logo-wrap", { xPercent: 28, transformOrigin: "right center" });
+  e.to(".call-bg-logo-wrap", { xPercent: scroolSpeed(28), transformOrigin: "right center" });
 }
 
 function cursor1() {
@@ -900,7 +906,7 @@ function moveLogoPattern1() {
       scrub: 2,
     },
   });
-  e.to(".call-bg-logo-wrap", { xPercent: 40, transformOrigin: "right center" });
+  e.to(".call-bg-logo-wrap", { xPercent: scroolSpeed(40), transformOrigin: "right center" });
 }
 
 
@@ -916,7 +922,7 @@ function moveLogoEmeil1() {
       scrub: 1,
     },
   });
-  e.to(".we-do-email-item_wrap", { xPercent: -25 });
+  e.to(".we-do-email-item_wrap", { xPercent: scroolSpeed(-25) });
 }
 
 
@@ -932,7 +938,7 @@ function moveLogoEmeil() {
       scrub: 1,
     },
   });
-  e.to(".we-do-email-item_wrap", { xPercent: -25 });
+  e.to(".we-do-email-item_wrap", { xPercent: scroolSpeed(-25) });
 }
 
 
