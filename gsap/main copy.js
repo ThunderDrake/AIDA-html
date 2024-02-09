@@ -61,6 +61,7 @@ function init() {
 
 
 function scroolSpeed(num){
+  console.log(window.innerWidth / 1920 * num);
   return window.innerWidth / 1920 * num;
 } 
 
