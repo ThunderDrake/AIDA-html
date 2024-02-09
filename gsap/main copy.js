@@ -966,15 +966,13 @@ function workGrids(){
 function splideCards(){
   let cardItem = selectAll(".splide__slide"),
   img = selectAll(".splide__slide img");
-
   if(img.length == 0 && cardItem.length == 0){
     return;
   }
-
   gsap.set(img, { scale: 1.1, transformOrigin: "center center" }),
   cardItem.forEach((e) => {
     var t = e.querySelector(".image img");
-    let r = e.querySelector(".link-tilte"),
+    let r = e.querySelector(".link-tilte");
     if(t && r){
       o = gsap.timeline({ paused: "true", reversed: "true" });
       o.to(t, { scale: 1, duration: 1.4, ease: "power2.inOut" }),
@@ -1035,8 +1033,6 @@ function navColorBg2() {
 
 
 //end func 
-
-//start events
 
 
 window.addEventListener("resize", () => {
