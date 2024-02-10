@@ -967,21 +967,25 @@ function workGrids(){
   cardItem1.forEach((e) => {
     var t = e.querySelector(".image img");
     let r = e.querySelector(".link-tilte");
-    if(t && r){
+   
       n = gsap.timeline({ paused: "true", reversed: "true" });
-    n.to(t, { scale: 1, duration: 1.4, ease: "power2.inOut" }),
-      e.addEventListener("mouseenter", () => {
-        n.play(), r.classList.add("animate-in");
-      }),
-      e.addEventListener("mouseleave", () => {
-        n.reverse(),
-          r.classList.add("animate-out"),
-          r.classList.remove("animate-in"),
-          setTimeout(() => {
-            r.classList.remove("animate-out");
-          }, 300);
-      });
-    }
+      if(t){
+        n.to(t, { scale: 1, duration: 1.4, ease: "power2.inOut" });
+      }
+      if(r){
+        e.addEventListener("mouseenter", () => {
+          n.play(), r.classList.add("animate-in");
+        }),
+        e.addEventListener("mouseleave", () => {
+          n.reverse(),
+            r.classList.add("animate-out"),
+            r.classList.remove("animate-in"),
+            setTimeout(() => {
+              r.classList.remove("animate-out");
+            }, 300);
+        });
+      }
+    
   });
 }
   
