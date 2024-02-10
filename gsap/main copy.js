@@ -592,12 +592,13 @@ function moveLogoPattern() {
   e.to(".call-bg-logo-wrap", { xPercent: scroolSpeed(28), transformOrigin: "right center" });
 }
 
+
 function cursor1() {
   var e = document.querySelectorAll(".splide"),
-    t = document.querySelectorAll(".works-link_current.project"),
+    t = document.querySelectorAll(".works-link_current.project");
     console.log(23);
     r = document.getElementById("cursor");
-
+    console.log(23);
     if(!e && !t && !r){
       return;
     }
