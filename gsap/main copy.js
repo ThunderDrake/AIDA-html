@@ -595,6 +595,7 @@ function moveLogoPattern() {
 function cursor1() {
   var e = document.querySelectorAll(".splide"),
     t = document.querySelectorAll(".works-link_current.project"),
+    console.log(23);
     r = document.getElementById("cursor");
 
     if(!e && !t && !r){
