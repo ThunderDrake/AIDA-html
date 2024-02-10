@@ -962,6 +962,7 @@ function workGrids(){
   if(cardItem1.length == 0 && img1.length == 0){
     return;
   }
+  console.log('works');
   gsap.set(img1, { scale: 1.1, transformOrigin: "center center" }),
   cardItem1.forEach((e) => {
     var t = e.querySelector(".image img");
