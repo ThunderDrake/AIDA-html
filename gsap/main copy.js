@@ -17,111 +17,111 @@ let menuToogle = select(".nav-btn-wrap");
  // start функции
 
 
-function init() {
-  headerAnimate();
-  trysyGsap();
-  navColorBgLight();
-  callItems();
-  cookies();
-  insightLinksItemFunc();
-  bigLinksFunc();
-  mainNavLinksFunc();
-  footerLinksFunc();
-  initLoader();
-  navColorBg();
-  navChanceColor();
-  mmAbautTabFunc800();
-  mmAbautTabFunc();
-  mmApproach799();
-  mmApproach800();
-  pin();
-  pinWork();
-  moveReting();
-  moveLogoPattern();
-  cursor1();
-  cursor();
-  navColorBgLight();
-  navColorBg1();
-  splideInit();
-  isughtsItemAn();
-  sliderMainFunc();
-  touchs();
-  initAwardsHover();
-  splideSlide992();
-  initImageParallax();
-  moveRect();
-  mmParalax();
-// moveLogoPattern1();
- // moveLogoEmeil1();
- // moveLogoEmeil();
-  workGrids();
-  splideCards();
-  navColorBg2();
-}
-
-
-function scroolSpeed(num){
- // if(num >= 0){
-    console.log(num * window.innerWidth / 600);
-    return  num * window.innerWidth / 600;
-  //} else{
-  //  num = num * -1;
- //   console.log(-1 * Math.pow(num, window.innerWidth / 1920));
- //  return -1 * Math.pow(num, window.innerWidth / 1920);
- // }
-} 
-
-
-
-function headerAnimate(){
-  const header = document.querySelector(".nav");
-  let lastScroll = 0;
-  const defaultOffset = 0;
-
-  if(!header){
-    return;
-  }
-  
-  scrollPosition = () =>
-    window.pageYOffset || document.documentElement.scrollTop,
-  containHide = () => header.classList.contains("hide");
-  window.addEventListener("scroll", () => {
-  scrollPosition() > lastScroll &&
-  !containHide() &&
-  scrollPosition() > defaultOffset
-    ? header.classList.add("hide")
-    : scrollPosition() < lastScroll &&
-      containHide() &&
-      header.classList.remove("hide"),
-    (lastScroll = scrollPosition());
-  });
-}
-
-
-function trysyGsap(){
-  const allTrysy = document.querySelectorAll(".moving-text-wrapp");
-
-  if(allTrysy.length == 0){
-    return;
+  function init() {
+    headerAnimate();
+    trysyGsap();
+    navColorBgLight();
+    callItems();
+    cookies();
+    insightLinksItemFunc();
+    bigLinksFunc();
+    mainNavLinksFunc();
+    footerLinksFunc();
+    initLoader();
+    navColorBg();
+    navChanceColor();
+    mmAbautTabFunc800();
+    mmAbautTabFunc();
+    mmApproach799();
+    mmApproach800();
+    pin();
+    pinWork();
+    moveReting();
+    moveLogoPattern();
+    cursor1();
+    cursor();
+    navColorBgLight();
+    navColorBg1();
+    splideInit();
+    isughtsItemAn();
+    sliderMainFunc();
+    touchs();
+    initAwardsHover();
+    splideSlide992();
+    initImageParallax();
+    moveRect();
+    mmParalax();
+    moveLogoPattern1();
+  // moveLogoEmeil1();
+  // moveLogoEmeil();
+    workGrids();
+    splideCards();
+    navColorBg2();
   }
 
-  for(let i = 0; i < allTrysy.length; i++){
-    allTrysy[i].classList.add("moving-text-wrapp" + i);
-    if(allTrysy[i].querySelector(".we-do-email-item_wrap")){
-      allTrysy[i].querySelector(".we-do-email-item_wrap").classList.add("we-do-email-item_wrap" + i);
+
+  function scroolSpeed(num){
+  // if(num >= 0){
+      console.log(num * window.innerWidth / 600);
+      return  num * window.innerWidth / 600;
+    //} else{
+    //  num = num * -1;
+  //   console.log(-1 * Math.pow(num, window.innerWidth / 1920));
+  //  return -1 * Math.pow(num, window.innerWidth / 1920);
+  // }
+  } 
+
+
+
+  function headerAnimate(){
+    const header = document.querySelector(".nav");
+    let lastScroll = 0;
+    const defaultOffset = 0;
+
+    if(!header){
+      return;
     }
-   
-    let e = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".moving-text-wrapp" + i,
-        start: "top bottom",
-        end: "bottom top-=200%",
-        scrub: 1,
-      },
+    
+    scrollPosition = () =>
+      window.pageYOffset || document.documentElement.scrollTop,
+    containHide = () => header.classList.contains("hide");
+    window.addEventListener("scroll", () => {
+    scrollPosition() > lastScroll &&
+    !containHide() &&
+    scrollPosition() > defaultOffset
+      ? header.classList.add("hide")
+      : scrollPosition() < lastScroll &&
+        containHide() &&
+        header.classList.remove("hide"),
+      (lastScroll = scrollPosition());
     });
-    e.to(".we-do-email-item_wrap" + i, { xPercent: scroolSpeed(-25) });
   }
-}
+
+
+  function trysyGsap(){
+    const allTrysy = document.querySelectorAll(".moving-text-wrapp");
+
+    if(allTrysy.length == 0){
+      return;
+    }
+
+    for(let i = 0; i < allTrysy.length; i++){
+      allTrysy[i].classList.add("moving-text-wrapp" + i);
+      if(allTrysy[i].querySelector(".we-do-email-item_wrap")){
+        allTrysy[i].querySelector(".we-do-email-item_wrap").classList.add("we-do-email-item_wrap" + i);
+      }
+    
+      let e = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".moving-text-wrapp" + i,
+          start: "top bottom",
+          end: "bottom top-=200%",
+          scrub: 1,
+        },
+      });
+      e.to(".we-do-email-item_wrap" + i, { xPercent: scroolSpeed(-25) });
+    }
+  }
 
 
   function navColorBgLight() {
@@ -164,25 +164,25 @@ function trysyGsap(){
   }
   
 
-const addActiveClass = (e) => {
-    e.classList.add("is-active");
-};
+  const addActiveClass = (e) => {
+      e.classList.add("is-active");
+  };
 
 
-function cookies(){
-  cookiesBtn = document.querySelector(".cookies-btn"),
-  cookiesClose = document.querySelector(".cookies-close"),
-  cookies = document.querySelector(".cookies");
-  if(!cookiesBtn && !cookiesClose && !cookies){
-    return;
+  function cookies(){
+    cookiesBtn = document.querySelector(".cookies-btn"),
+    cookiesClose = document.querySelector(".cookies-close"),
+    cookies = document.querySelector(".cookies");
+    if(!cookiesBtn && !cookiesClose && !cookies){
+      return;
+    }
+    cookiesBtn.addEventListener("click", () => {
+      addActiveClass(cookies);
+    }),
+    cookiesClose.addEventListener("click", () => {
+      addActiveClass(cookies);
+    });
   }
-  cookiesBtn.addEventListener("click", () => {
-    addActiveClass(cookies);
-  }),
-  cookiesClose.addEventListener("click", () => {
-    addActiveClass(cookies);
-  });
-}
 
   function insightLinksItemFunc(){
     const insightLinksItem = gsap.utils.toArray(".insights-link");
@@ -959,7 +959,7 @@ function resizeInit() {
 function workGrids(){
   let cardItem1 = selectAll(".works_grid-item");
   img1 = selectAll(".image img");
-  if(cardItem1.length == 0 && img1== 0){
+  if(cardItem1.length == 0 && img1.length == 0){
     return;
   }
   gsap.set(img1, { scale: 1.1, transformOrigin: "center center" }),
