@@ -62,8 +62,8 @@ function init() {
 
 function scroolSpeed(num){
  // if(num >= 0){
-    console.log(num * window.innerWidth / 324);
-    return  num * window.innerWidth / 324;
+    console.log(num * window.innerWidth / 600);
+    return  num * window.innerWidth / 600;
   //} else{
   //  num = num * -1;
  //   console.log(-1 * Math.pow(num, window.innerWidth / 1920));
