@@ -782,17 +782,20 @@ function touchs(){
     return;
   }
   let btnTouch = document.querySelector("[touch=btn]");
+  if(btnTouch){
     btnTouch.addEventListener("click", function () {
       let e = document.querySelector(".touch-form-section");
       e.classList.add("is-active");
     });
+  }
 
     closeTouch = document.querySelector("[touch=close]");
-    closeTouch.addEventListener("click", function () {
-      let e = document.querySelector(".touch-form-section");
-      e.classList.remove("is-active");
-    });
-  
+    if(closeTouch){
+      closeTouch.addEventListener("click", function () {
+        let e = document.querySelector(".touch-form-section");
+        e.classList.remove("is-active");
+      });
+    }
 }
 
   
@@ -887,7 +890,7 @@ function initImageParallax() {
 
 
 function moveRect() {
-  if(!document.querySelector(".article-section") && !document.querySelector(".arcticle-rect.two") && !document.querySelector(".arcticle-rect.four") && !document.querySelector(".arcticle-rect.three") && !document.querySelector(".arcticle-rect.five") && !document.querySelector(".arcticle-rect.six")){
+  if(!document.querySelector(".article-section")){
     return
   }
   let e = gsap.timeline({
@@ -900,11 +903,21 @@ function moveRect() {
       invalidateOnRefresh: !0,
     },
   });
-  e.to(".arcticle-rect.two", { yPercent: 10 }),
-    e.to(".arcticle-rect.three", { yPercent: 20 }, "<"),
-    e.to(".arcticle-rect.four", { yPercent: 30 }, "<"),
-    e.to(".arcticle-rect.five", { yPercent: 40 }, "<"),
+  if(document.querySelector(".arcticle-rect.two")){
+    e.to(".arcticle-rect.two", { yPercent: 10 });
+  }
+  if(document.querySelector(".arcticle-rect.three")){
+    e.to(".arcticle-rect.three", { yPercent: 20 }, "<");
+  }
+  if(document.querySelector(".arcticle-rect.four")){
+    e.to(".arcticle-rect.four", { yPercent: 30 }, "<");
+  }
+  if(document.querySelector(".arcticle-rect.five")){
+    e.to(".arcticle-rect.five", { yPercent: 40 }, "<");
+  }
+  if(document.querySelector(".arcticle-rect.six")){
     e.to(".arcticle-rect.six", { yPercent: 50 }, "<");
+  }
 }
 
 
