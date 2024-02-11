@@ -21,7 +21,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
 
   function init() {
     headerAnimate();
-    //trysyGsap();
+    trysyGsap();
     navColorBgLight();
     callItems();
     cookies();
@@ -612,26 +612,27 @@ function cursor1() {
     console.log(23);
     r = document.getElementById("cursor");
     console.log(23);
-    if(!e && !t && !r){
-      return;
-    }
+if(e){
   e.forEach(function (e) {
     if(r){
       e.addEventListener("mouseenter", function () {
         r.classList.add("drag-cursor");
       });
     }
-  }),
-    t.forEach(function (e) {
-      if(r){
-      e.addEventListener("mouseenter", function () {
+  });
+}
+ if(t){
+  t.forEach(function (e) {
+    if(r){
+    e.addEventListener("mouseenter", function () {
+      r.classList.toggle("drag-cursor");
+    }),
+      e.addEventListener("mouseleave", function () {
         r.classList.toggle("drag-cursor");
-      }),
-        e.addEventListener("mouseleave", function () {
-          r.classList.toggle("drag-cursor");
-        });
-      }
-    });
+      });
+    }
+  });
+ }
     if(document.querySelector(".splide")){
     document
       .querySelector(".splide")
