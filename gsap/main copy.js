@@ -12,6 +12,8 @@ navBar = select(".nav");
 let mmApproach = gsap.matchMedia();
 logoWrap = select(".logo-wrapper");
 let menuToogle = select(".nav-btn-wrap");
+let work = false;
+const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
  // end переменные
 
  // start функции
@@ -19,7 +21,7 @@ let menuToogle = select(".nav-btn-wrap");
 
   function init() {
     headerAnimate();
-    trysyGsap();
+    //trysyGsap();
     navColorBgLight();
     callItems();
     cookies();
@@ -52,23 +54,21 @@ let menuToogle = select(".nav-btn-wrap");
     moveRect();
     mmParalax();
     moveLogoPattern1();
-  // moveLogoEmeil1();
-  // moveLogoEmeil();
+    moveLogoEmeil1();
+    moveLogoEmeil();
     workGrids();
     splideCards();
-    navColorBg2();
+    //navColorBg2();
+    menuLogic();
   }
 
 
   function scroolSpeed(num){
-  // if(num >= 0){
-      console.log(num * window.innerWidth / 600);
-      return  num * window.innerWidth / 600;
-    //} else{
-    //  num = num * -1;
-  //   console.log(-1 * Math.pow(num, window.innerWidth / 1920));
-  //  return -1 * Math.pow(num, window.innerWidth / 1920);
-  // }
+    if(window.innerWidth > 1920){
+      return num * window.innerWidth / 1920;
+    } else{
+      return  num;
+    }
   } 
 
 
@@ -145,6 +145,9 @@ let menuToogle = select(".nav-btn-wrap");
     let callItem = gsap.utils.toArray(".call-item"),
     infoCallItem = gsap.utils.toArray(".call-info-item");
     if(!callItem && !infoCallItem){
+      return;
+    }
+    if(!infoCallItem[0]){
       return;
     }
     infoCallItem[0].classList.add("is-active"),
@@ -247,8 +250,13 @@ let menuToogle = select(".nav-btn-wrap");
     });
   }
 
+  console.log("fdfdfd" + localStorage.getItem("visit"));
+
 
 function initLoader() {
+  if(!document.querySelector(".loader")){
+    return;
+  }
   var r = selectAll("[loading-text]"),
     a = selectAll("[hero-up]"),
     e = localStorage.getItem("visit");
@@ -279,9 +287,14 @@ function initLoader() {
       defaults: { ease: "power2.inOut", duration: 0.6 },
       onComplete: () => lenis.start(),
     });
-    t.to(r, { yPercent: -100, transformOrigin: "bottom", stagger: 0.2 }),
-      t.to([progresLine, logoLottie], { autoAlpha: 0, duration: 0.8 }, 0),
-      t.to(loaderWrap, { yPercent: -100 }),
+
+    t.to(r, { yPercent: -100, transformOrigin: "bottom", stagger: 0.2 });
+    if(progresLine && logoLottie){
+      t.to([progresLine, logoLottie], { autoAlpha: 0, duration: 0.8 }, 0);
+    }
+    if(loaderWrap){
+      t.to(loaderWrap, { yPercent: -100 });
+    }
       t.from(a, { y: 80, stagger: 0.1 }, "<-=10%");
     let o = gsap.timeline();
     o.add(e), o.add(t);
@@ -902,20 +915,55 @@ function mmParalax(){
 }
 
 
-function moveLogoPattern1() {
-  if(!document.querySelector(".we-do_section") && !document.querySelector(".we-do-email-item_wrap")){
+function menuClick() {
+  menuOpen.reversed() ? menuOpen.play() : menuOpen.reverse();
+}
+
+function menuLogic(){
+  if(!document.querySelector(".nav_open") && !document.querySelector(".menu_btn")){
     return;
   }
+  menuOpen.to(".nav_open", { display: "flex" }),
+  menuOpen.to(
+    ".menu_btn",
+    { duration: 0.3, yPercent: -100, ease: "none" },
+    "0"
+  ),
+  menuOpen.from(
+    ".nav_open",
+    {
+      duration: 1,
+      y: "-100%",
+      ease: "power.out",
+      onStart: () => {
+        navBar.classList.contains("active-menu") ||
+          navBar.classList.add("active-menu");
+      },
+      onReverseComplete: () => {
+        navBar.classList.contains("active-menu") &&
+          navBar.classList.remove("active-menu");
+      },
+    },
+    "0"
+  );
+}
+
+
+function moveLogoPattern1() {
+  if(!document.querySelector(".we-do-it_section") && !document.querySelector(".we-do-email-item_wrap")){
+    return;
+  }
+  work = false;
   let e = gsap.timeline({
     scrollTrigger: {
       id: "Pattern",
-      trigger: ".we-do_section",
+      trigger: ".we-do-it_section",
       start: "top bottom",
       end: "bottom+=50% top",
       scrub: 2,
     },
   });
-  e.to(".call-bg-logo-wrap", { xPercent: scroolSpeed(40), transformOrigin: "right center" });
+  e.to(".we-do-email-item_wrap", { xPercent: scroolSpeed(-40), transformOrigin: "right center" });
 }
 
 
@@ -1061,11 +1109,11 @@ function navColorBg2() {
 
 //end func 
 
-
 window.addEventListener("resize", () => {
   resizeInit();
 });
 
+menuToogle.addEventListener("click", menuClick);
 
 document.addEventListener("DOMContentLoaded", init);
 
