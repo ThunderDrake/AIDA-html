@@ -20,6 +20,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
 
 
   function init() {
+    addbgcolor();
     headerAnimate();
     trysyGsap();
     navColorBgLight();
@@ -603,7 +604,7 @@ function moveLogoPattern() {
       scrub: 2,
     },
   });
-  e.to(".call-bg-logo-wrap", { xPercent: scroolSpeed(28), transformOrigin: "right center" });
+  e.to(".call-section-sticky .call-bg-logo-wrap", { xPercent: scroolSpeed(28), transformOrigin: "right center" });
 }
 
 
@@ -1005,10 +1006,6 @@ function moveLogoPattern1() {
   if(!document.querySelector(".we-do-it_section") && !document.querySelector(".we-do-email-item_wrap")){
     return;
   }
-  if(!work){
-    return;
-  }
-  work = false;
   let e = gsap.timeline({
     scrollTrigger: {
       id: "Pattern",
@@ -1018,7 +1015,7 @@ function moveLogoPattern1() {
       scrub: 2,
     },
   });
-  e.to(".we-do-it_section .we-do-email-item_wrap", { xPercent: scroolSpeed(-40), transformOrigin: "right center" });
+  e.to(".we-do-it_section .call-bg-logo-wrap", { xPercent: scroolSpeed(-40), transformOrigin: "right center" });
 }
 
 
@@ -1043,10 +1040,7 @@ function moveLogoEmeil() {
   if(!document.querySelector(".we-do_email-wrapper") && !document.querySelector(".we-do-email-item_wrap")){
     return;
   }
-  if(!work){
-    return;
-  }
-  work = false;
+
   let e = gsap.timeline({
     scrollTrigger: {
       trigger: ".we-do_email-wrapper",
@@ -1104,7 +1098,7 @@ function scrollBgShow(){
         bgHEader.style.background = trapsparent;
       } else{
         bgHEader.style.background = "rgba(255,255,255,.15)";
-      }
+      } 
     });
   }
 }
@@ -1137,6 +1131,23 @@ function splideCards(){
     }
   });
 }
+
+function addbgcolor(){
+  let body = document.querySelector("body");
+  let docu = document.createElement('style');
+  let cssd = ".dark-nav { color: #333 !important; }";
+  docu.appendChild(document.createTextNode(cssd));
+  body.prepend(docu);
+  window.addEventListener("scroll", ev => {
+    let header = document.querySelector(".nav");
+    if(header.classList.contains("nav-for-dark")){
+      document.querySelectorAll(".dark-nav").forEach(el => {
+        el.classList.remove("dark-nav");
+      });
+    }
+  });
+}
+
 
 
 function navColorBg2() {
