@@ -746,12 +746,17 @@ function isughtsItemAn(){
       a.to(t, { scale: 1, duration: 0.8, ease: "power.inOut" }),
         e.addEventListener("mouseenter", () => {
           a.play(),
-            o.classList.add("title-underline"),
-            r.classList.add("link-underline");
+            o.classList.add("title-underline");
+            if(r){
+              r.classList.add("link-underline");
+            }
+            
         }),
         e.addEventListener("mouseleave", () => {
           a.reverse(),
-            r.classList.remove("link-underline"),
+          if(r){
+            r.classList.remove("link-underline");
+          }
             o.classList.remove("title-underline");
         });
       }
