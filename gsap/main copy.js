@@ -746,6 +746,7 @@ function isughtsItemAn(){
         a = gsap.timeline({ paused: "true", reversed: "true" });
       a.to(t, { scale: 1, duration: 10, ease: "power2.inOut" }),
         e.addEventListener("mouseenter", () => {
+          console.log("hi");
           a.play(),
             o.classList.add("title-underline");
             if(r){
