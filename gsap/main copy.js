@@ -12,7 +12,7 @@ navBar = select(".nav");
 let mmApproach = gsap.matchMedia();
 logoWrap = select(".logo-wrapper");
 let menuToogle = select(".nav-btn-wrap");
-let work = false;
+let work = true;
 const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
  // end переменные
 
@@ -967,6 +967,9 @@ function moveLogoPattern1() {
   if(!document.querySelector(".we-do-it_section") && !document.querySelector(".we-do-email-item_wrap")){
     return;
   }
+  if(!work){
+    return;
+  }
   work = false;
   let e = gsap.timeline({
     scrollTrigger: {
@@ -977,7 +980,7 @@ function moveLogoPattern1() {
       scrub: 2,
     },
   });
-  e.to(".we-do-email-item_wrap", { xPercent: scroolSpeed(-40), transformOrigin: "right center" });
+  e.to(".we-do-it_section .we-do-email-item_wrap", { xPercent: scroolSpeed(-40), transformOrigin: "right center" });
 }
 
 
@@ -985,6 +988,7 @@ function moveLogoEmeil1() {
   if(!document.querySelector(".services_email-wrapper") && !document.querySelector(".we-do-email-item_wrap")){
     return;
   }
+  
   let e = gsap.timeline({
     scrollTrigger: {
       trigger: ".services_email-wrapper",
@@ -993,7 +997,7 @@ function moveLogoEmeil1() {
       scrub: 1,
     },
   });
-  e.to(".we-do-email-item_wrap", { xPercent: scroolSpeed(-25) });
+  e.to(".services_email-wrapper .we-do-email-item_wrap", { xPercent: scroolSpeed(-25) });
 }
 
 
@@ -1001,6 +1005,10 @@ function moveLogoEmeil() {
   if(!document.querySelector(".we-do_email-wrapper") && !document.querySelector(".we-do-email-item_wrap")){
     return;
   }
+  if(!work){
+    return;
+  }
+  work = false;
   let e = gsap.timeline({
     scrollTrigger: {
       trigger: ".we-do_email-wrapper",
@@ -1009,7 +1017,7 @@ function moveLogoEmeil() {
       scrub: 1,
     },
   });
-  e.to(".we-do-email-item_wrap", { xPercent: scroolSpeed(-25) });
+  e.to(".we-do_email-wrapper .we-do-email-item_wrap", { xPercent: scroolSpeed(-25) });
 }
 
 
