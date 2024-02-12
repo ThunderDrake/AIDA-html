@@ -47,7 +47,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
     //isughtsItemAn();
     sliderMainFunc();
     touchs();
-    initAwardsHover();
+    //initAwardsHover();
     //splideSlide992();
     //mm992();
     initImageParallax();
