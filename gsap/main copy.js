@@ -1069,7 +1069,7 @@ function resizeInit() {
 function workGrids(){
   let cardItem = selectAll(".works_grid-item"),
   img = selectAll(".image img");
-gsap.set(img, { scale: 1.1, transformOrigin: "center center" }),
+gsap.set(img, { scale: 1.05, transformOrigin: "center center" }),
   cardItem.forEach((e) => {
     var t = e.querySelector(".image img");
     let r = e.querySelector(".link-tilte"),
