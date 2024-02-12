@@ -24,7 +24,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
     trysyGsap();
     navColorBgLight();
     callItems();
-    cookies();
+    cookieses();
     insightLinksItemFunc();
     bigLinksFunc();
     mainNavLinksFunc();
@@ -172,7 +172,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
   };
 
 
-  function cookies(){
+  function cookieses(){
     cookiesBtn = document.querySelector(".cookies-btn"),
     cookiesClose = document.querySelector(".cookies-close"),
     cookies = document.querySelector(".cookies");
@@ -694,7 +694,8 @@ function splideInit(){
   if(!select(".splide")){
     return;
   }
-  document.addEventListener("DOMContentLoaded", function () {
+  console.log("splide");
+
     new Splide(".splide", {
       type: "loop",
       drag: "free",
@@ -703,7 +704,7 @@ function splideInit(){
       arrows: !1,
       pagination: !1,
     }).mount();
-  });
+
 }
 
 
@@ -740,7 +741,7 @@ function isughtsItemAn(){
 
 
 function sliderMainFunc(){
-  if(!document.querySelector(".slider-main-component") && !document.querySelector(".swiper")){
+  if(!document.querySelector(".slider-main-component")){
     return;
   }
   $(".slider-main-component").each(function (e) {
