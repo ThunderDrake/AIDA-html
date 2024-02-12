@@ -1116,7 +1116,7 @@ gsap.set(img, { scale: 1.05, transformOrigin: "center center" }),
 }
 
 function scrollBgShow(){
-  const bgHEader = document.querySelector(".nav.white-bg");
+  const bgHEader = document.querySelector(".nav");
   if(bgHEader){
     bgHEader.style.background = trapsparent;
     document.addEventListener("scroll", (event) => {
