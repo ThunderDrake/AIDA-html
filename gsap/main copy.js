@@ -737,14 +737,14 @@ function isughtsItemAn(){
   }
     let insightItem = selectAll(".isughts-item");
     imgInsight = selectAll(".image-content-block img");
-  gsap.set(imgInsight, { scale: 1.02, transformOrigin: "center center" }),
-    insightItem.forEach((e) => {
+  gsap.set(imgInsight, { scale: 1.05, transformOrigin: "center center" }),
+    insightItem.forEach((e) => {f
       var t = e.querySelector(".image img");
       let o = e.querySelector(".is-h3");
       if(o && t){
         r = e.querySelector(".insights-link"),
         a = gsap.timeline({ paused: "true", reversed: "true" });
-      a.to(t, { scale: 1, duration: 0.8, ease: "power.inOut" }),
+      a.to(t, { scale: 1, duration: 1.4, ease: "power.inOut" }),
         e.addEventListener("mouseenter", () => {
           a.play(),
             o.classList.add("title-underline");
