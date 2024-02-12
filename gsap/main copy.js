@@ -1118,13 +1118,13 @@ gsap.set(img, { scale: 1.05, transformOrigin: "center center" }),
 function scrollBgShow(){
   const bgHEader = document.querySelector(".nav");
   if(bgHEader){
-    bgHEader.style.background = "trapsparent";
+    bgHEader.classList.remove("white-bg");      
     document.addEventListener("scroll", (event) => {
       if(window.scrollY > window.innerHeight){
-        bgHEader.style.background = "rgba(255,255,255,.15)";
+        bgHEader.classList.add("white-bg");
       } else{
-        bgHEader.style.background = "trapsparent";
-      } 
+        bgHEader.classList.remove("white-bg");     
+       } 
     });
   }
 }
