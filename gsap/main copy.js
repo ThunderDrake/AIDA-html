@@ -1121,9 +1121,9 @@ function scrollBgShow(){
     bgHEader.style.background = "trapsparent";
     document.addEventListener("scroll", (event) => {
       if(window.scrollY > window.innerHeight){
-        bgHEader.style.background = "trapsparent";
-      } else{
         bgHEader.style.background = "rgba(255,255,255,.15)";
+      } else{
+        bgHEader.style.background = "trapsparent";
       } 
     });
   }
