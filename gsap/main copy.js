@@ -21,9 +21,9 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
 
   function init() {
     //addbgcolor();
-    headerAnimate();
+    //headerAnimate();
     trysyGsap();
-    navColorBgLight();
+    //navColorBgLight();
     callItems();
     cookieses();
     insightLinksItemFunc();
@@ -34,7 +34,6 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
     //navColorBg();
     //navChanceColor();
     mmAbautTabFunc800();
-    mmAbautTabFunc();
     mmApproach799();
     pin();
     pinWork();
@@ -42,8 +41,8 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
     moveLogoPattern();
     cursor1();
     cursor();
-    navColorBgLight();
-    navColorBg1();
+    //navColorBgLight();
+    //navColorBg1();
     splideInit();
     isughtsItemAn();
     sliderMainFunc();
@@ -61,6 +60,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
     splideCards();
     //navColorBg2();
     menuLogic();
+    //tabsAn();
   }
 
 
@@ -72,6 +72,45 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
     }
   } 
 
+
+  function tabsAn(){
+    mmApproach.add("(min-width: 800px)", () => {
+      let e = selectAll(".approach-tab-item");
+      e.forEach((t) => {
+        t.itemWrap = t.querySelector(".approach-item-content");
+        var e = t.querySelectorAll(".approach-item-up .is-h3"),
+          o = t.querySelectorAll(".line-dotter"),
+          r = t.querySelectorAll(".line-solid");
+        t.itemWrap;
+        let a = t.querySelector(".plusminus"),
+          s = t.querySelector(".item-icon-text"),
+          i = t.querySelector(".item-icon-text_close"),
+          l = !1,
+          n = gsap.timeline({ paused: "true", reversed: "true" });
+        n.to(e, { x: 20, duration: 0.6, color: "#25CE5", ease: "power2.out" }),
+          n.to(o, { xPercent: 100, duration: 0.6, ease: "power2.out" }, "<"),
+          n.to(r, { xPercent: 100, duration: 0.6, ease: "power2.out" }, "<"),
+          t.addEventListener("mouseenter", () => {
+            l || n.play();
+          }),
+          t.addEventListener("mouseleave", () => {
+            l || n.reverse();
+          }),
+          t.addEventListener("click", () => {
+            n.reversed(!1).pause(),
+              a.classList.toggle("active"),
+              s.classList.toggle("active"),
+              i.classList.toggle("active");
+            let e = t.itemWrap;
+            e.style.maxHeight
+              ? (e.style.maxHeight = null)
+              : (e.style.maxHeight = e.scrollHeight + "px"),
+              console.log(e),
+              l ? (l = !1) : ((l = !0), n.progress(1));
+          });
+      });
+    });
+  }
 
 
   function headerAnimate(){
@@ -272,8 +311,8 @@ function initLoader() {
       onComplete: function () {
         select("body").classList.remove("is-loading");
         pin();
-        navColorBg();
-        navChanceColor();
+        //navColorBg();
+        //navChanceColor();
         moveReting();
         moveLogoPattern();
         cursor();
@@ -310,7 +349,7 @@ function initLoader() {
       onComplete: function () {
         select("body").classList.remove("is-loading");
           pin();
-          navColorBg();
+          //navColorBg();
           moveReting();
           moveLogoPattern();
           moveLogoPattern1();
@@ -406,65 +445,41 @@ function mmAbautTabFunc800(){
   mmAbautTab.add("(min-width: 800px)", () => {
     let e = selectAll(".abaut_item-subtitle");
     e.forEach((t) => {
-        t.itemWrap = t.querySelector(".abaut_tab-sub");
-        var e = t.querySelectorAll(".tab-link a"),
+      t.itemWrap = t.querySelector(".abaut_tab-sub");
+      var e = t.querySelectorAll(".tab-link a"),
         o = t.querySelectorAll(".line-dotter"),
         r = t.querySelectorAll(".line-solid");
-        let a = t.querySelector(".plusminus"),
-        s = !1;
-
+      let a = t.querySelector(".plusminus"),
+        s = !1,
         i = gsap.timeline({ paused: "true", reversed: "true" });
-        if(e){
-          i.to(e, { x: 20, duration: 0.6, color: "#25CE5", ease: "power2.out" });
-        }
-        if(o){
-          i.to(o, { xPercent: 100, duration: 0.6, ease: "power2.out" }, "<");
-        }
-        if(r){
-          i.to(r, { xPercent: 100, duration: 0.6, ease: "power2.out" }, "<");
-        }
-        if(t){
-          t.addEventListener("mouseenter", () => {
-            s || i.play();
-          }),
-          t.addEventListener("mouseleave", () => {
-            s || i.reverse();
-          });
-        }
+      i.to(e, { x: 20, duration: 0.6, color: "#25CE5", ease: "power2.out" }),
+        i.to(o, { xPercent: 100, duration: 0.6, ease: "power2.out" }, "<"),
+        i.to(r, { xPercent: 100, duration: 0.6, ease: "power2.out" }, "<"),
+        t.addEventListener("mouseenter", () => {
+          s || i.play();
+        }),
+        t.addEventListener("mouseleave", () => {
+          s || i.reverse();
+        }),
         t.addEventListener("click", () => {
-          if(a){
-            i.reversed(!1).pause(), a.classList.toggle("active");
-          }
-         
-         
-          if(e && t){
-            let e = t.itemWrap;
-            e.style.maxHeight
+          i.reversed(!1).pause(), a.classList.toggle("active");
+          let e = t.itemWrap;
+          e.style.maxHeight
             ? (e.style.maxHeight = null)
             : (e.style.maxHeight = e.scrollHeight + "px"),
             console.log(e),
             s ? (s = !1) : ((s = !0), i.progress(1));
-          }
-         
         });
-      
     });
-  });
-}
-
-function mmAbautTabFunc(){
-  if(!document.querySelector(".abaut_item-subtitle")){
-    return;
-  }
-  mmAbautTab.add("(max-width: 800px)", () => {
-    let e = selectAll(".abaut_item-subtitle");
-    e.forEach((t) => {
-      t.itemWrap = t.querySelector(".abaut_tab-sub");
-      t.querySelectorAll(".tab-link a"),
-        t.querySelectorAll(".line-dotter"),
-        t.querySelectorAll(".line-solid");
-      let o = t.querySelector(".plusminus");
-      if(o && t){
+  }),
+    mmAbautTab.add("(max-width: 800px)", () => {
+      let e = selectAll(".abaut_item-subtitle");
+      e.forEach((t) => {
+        t.itemWrap = t.querySelector(".abaut_tab-sub");
+        t.querySelectorAll(".tab-link a"),
+          t.querySelectorAll(".line-dotter"),
+          t.querySelectorAll(".line-solid");
+        let o = t.querySelector(".plusminus");
         t.addEventListener("click", () => {
           o.classList.toggle("active");
           let e = t.itemWrap;
@@ -472,12 +487,10 @@ function mmAbautTabFunc(){
             ? (e.style.maxHeight = null)
             : (e.style.maxHeight = e.scrollHeight + "px");
         });
-      }
+      });
     });
-  });
-
 }
-  
+
 
 function mmApproach799(){
   if(!document.querySelector(".approach-tab-item") && !document.querySelector(".abaut_left-blok") && !document.querySelector(".approach-item-content")){
