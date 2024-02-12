@@ -49,7 +49,8 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
     sliderMainFunc();
     touchs();
     initAwardsHover();
-    splideSlide992();
+    //splideSlide992();
+    mm992();
     initImageParallax();
     moveRect();
     mmParalax();
@@ -737,6 +738,42 @@ function isughtsItemAn(){
  
 }
 
+function mm992(){
+  let mm = gsap.matchMedia();
+mm.add("(min-width: 992px)", () => {
+  cursor1();
+  let e = selectAll(".splide__slide");
+  var t = selectAll(".image img");
+  gsap.set(t, { scale: 1.05, transformOrigin: "center center" }),
+    e.forEach((e) => {
+      var t = e.querySelector(".image img");
+      let r = e.querySelector(".link-tilte"),
+        o = gsap.timeline({ paused: "true", reversed: "true" });
+        if(t){
+      o.to(t, { scale: 1, duration: 1.4, ease: "power2.inOut" });
+    }
+        e.addEventListener("mouseenter", () => {
+          o.play();
+          if(r){
+            r.classList.add("animate-in");
+          }
+           
+        }),
+        e.addEventListener("mouseleave", () => {
+          o.reverse();
+          if(r){
+
+            r.classList.add("animate-out"),
+            r.classList.remove("animate-in"),
+            setTimeout(() => {
+              r.classList.remove("animate-out");
+            }, 300);
+          }
+        });
+    });
+}),
+}
+
 
 
 
@@ -1034,13 +1071,11 @@ function workGrids(){
     return;
   }
   console.log('works');
-  gsap.set(img1, { scale: 1.1, transformOrigin: "center center" }),
+  gsap.set(img1, { scale: 1.05, transformOrigin: "center center" }),
   cardItem1.forEach((e) => {
     var t = e.querySelector(".image img");
     let r = e.querySelector(".link-tilte");
    if(t){
-
-   
       n = gsap.timeline({ paused: "true", reversed: "true" });
      
         n.to(t, { scale: 1, duration: 1.4, ease: "power2.inOut" });
@@ -1069,6 +1104,20 @@ function workGrids(){
     
   });
 }
+
+function scrollBgShow(){
+  const bgHEader = document.querySelector(".nav.white-bg");
+  if(bgHEader){
+    bgHEader.style.background = trapsparent;
+    document.addEventListener("scroll", (event) => {
+      if(window.scrollY > window.innerHeight){
+        bgHEader.style.background = trapsparent;
+      } else{
+        bgHEader.style.background = "rgba(255,255,255,.15)";
+      }
+    });
+  }
+}
   
 
 function splideCards(){
@@ -1077,7 +1126,7 @@ function splideCards(){
   if(img.length == 0 && cardItem.length == 0){
     return;
   }
-  gsap.set(img, { scale: 1.1, transformOrigin: "center center" }),
+  gsap.set(img, { scale: 1.05, transformOrigin: "center center" }),
   cardItem.forEach((e) => {
     var t = e.querySelector(".image img");
     let r = e.querySelector(".link-tilte");
