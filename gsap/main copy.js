@@ -738,7 +738,7 @@ function isughtsItemAn(){
     let insightItem = selectAll(".isughts-item");
     imgInsight = selectAll(".image-content-block img");
   gsap.set(imgInsight, { scale: 1.05, transformOrigin: "center center" }),
-    insightItem.forEach((e) => {f
+    insightItem.forEach((e) => {
       var t = e.querySelector(".image img");
       let o = e.querySelector(".is-h3");
       if(o && t){
