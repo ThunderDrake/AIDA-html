@@ -61,6 +61,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
     //navColorBg2();
     menuLogic();
     //tabsAn();
+    scrollBgShow();
   }
 
 
@@ -1120,7 +1121,7 @@ function scrollBgShow(){
     bgHEader.style.background = trapsparent;
     document.addEventListener("scroll", (event) => {
       if(window.scrollY > window.innerHeight){
-        bgHEader.style.background = trapsparent;
+        bgHEader.style.background = "trapsparent";
       } else{
         bgHEader.style.background = "rgba(255,255,255,.15)";
       } 
