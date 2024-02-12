@@ -413,27 +413,42 @@ function mmAbautTabFunc800(){
         r = t.querySelectorAll(".line-solid");
         let a = t.querySelector(".plusminus"),
         s = !1;
-        if(e && o && r && a){
+
         i = gsap.timeline({ paused: "true", reversed: "true" });
-        i.to(e, { x: 20, duration: 0.6, color: "#25CE5", ease: "power2.out" }),
-        i.to(o, { xPercent: 100, duration: 0.6, ease: "power2.out" }, "<"),
-        i.to(r, { xPercent: 100, duration: 0.6, ease: "power2.out" }, "<"),
-        t.addEventListener("mouseenter", () => {
-          s || i.play();
-        }),
-        t.addEventListener("mouseleave", () => {
-          s || i.reverse();
-        }),
+        if(e){
+          i.to(e, { x: 20, duration: 0.6, color: "#25CE5", ease: "power2.out" });
+        }
+        if(o){
+          i.to(o, { xPercent: 100, duration: 0.6, ease: "power2.out" }, "<");
+        }
+        if(r){
+          i.to(r, { xPercent: 100, duration: 0.6, ease: "power2.out" }, "<");
+        }
+        if(t){
+          t.addEventListener("mouseenter", () => {
+            s || i.play();
+          }),
+          t.addEventListener("mouseleave", () => {
+            s || i.reverse();
+          });
+        }
         t.addEventListener("click", () => {
-          i.reversed(!1).pause(), a.classList.toggle("active");
-          let e = t.itemWrap;
-          e.style.maxHeight
+          if(a){
+            i.reversed(!1).pause(), a.classList.toggle("active");
+          }
+         
+         
+          if(e && t){
+            let e = t.itemWrap;
+            e.style.maxHeight
             ? (e.style.maxHeight = null)
             : (e.style.maxHeight = e.scrollHeight + "px"),
             console.log(e),
             s ? (s = !1) : ((s = !0), i.progress(1));
+          }
+         
         });
-      }
+      
     });
   });
 }
