@@ -1038,11 +1038,13 @@ function workGrids(){
   cardItem1.forEach((e) => {
     var t = e.querySelector(".image img");
     let r = e.querySelector(".link-tilte");
+   if(t){
+
    
       n = gsap.timeline({ paused: "true", reversed: "true" });
-      if(t){
+     
         n.to(t, { scale: 1, duration: 1.4, ease: "power2.inOut" });
-      }
+      
       
         e.addEventListener("mouseenter", () => {
           n.play(); 
@@ -1061,6 +1063,8 @@ function workGrids(){
             }, 300);
           }
         });
+
+      }
       
     
   });
