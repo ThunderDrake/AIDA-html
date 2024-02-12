@@ -20,7 +20,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
 
 
   function init() {
-    //addbgcolor();
+    addbgcolor();
     //headerAnimate();
     trysyGsap();
     //navColorBgLight();
