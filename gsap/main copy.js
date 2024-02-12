@@ -1072,15 +1072,21 @@ gsap.set(img, { scale: 1.1, transformOrigin: "center center" }),
       n = gsap.timeline({ paused: "true", reversed: "true" });
     n.to(t, { scale: 1, duration: 1.4, ease: "power2.inOut" }),
       e.addEventListener("mouseenter", () => {
-        n.play(), r.classList.add("animate-in");
+
+        n.play();
+        if(r){
+          r.classList.add("animate-in");
+        }
       }),
       e.addEventListener("mouseleave", () => {
-        n.reverse(),
+        n.reverse();
+        if(r){
           r.classList.add("animate-out"),
           r.classList.remove("animate-in"),
           setTimeout(() => {
             r.classList.remove("animate-out");
           }, 300);
+        }
       });
   });
 
