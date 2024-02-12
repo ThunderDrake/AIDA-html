@@ -20,7 +20,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
 
 
   function init() {
-    addbgcolor();
+    //addbgcolor();
     headerAnimate();
     trysyGsap();
     navColorBgLight();
@@ -31,12 +31,11 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
     mainNavLinksFunc();
     footerLinksFunc();
     initLoader();
-    navColorBg();
-    navChanceColor();
+    //navColorBg();
+    //navChanceColor();
     mmAbautTabFunc800();
     mmAbautTabFunc();
     mmApproach799();
-    mmApproach800();
     pin();
     pinWork();
     moveReting();
@@ -495,67 +494,60 @@ function mmApproach799(){
       let a = t.querySelector(".plusminus"),
         s = t.querySelector(".item-icon-text"),
         i = t.querySelector(".item-icon-text_close"),
-        l = !1;
-        if(e && o && r && a && s && i){
-          n = gsap.timeline({ paused: "true", reversed: "true" });
-          n.to(e, { x: 20, duration: 0.6, color: "#25CE5", ease: "power2.out" }),
-          n.to(o, { xPercent: 100, duration: 0.6, ease: "power2.out" }, "<"),
-          n.to(r, { xPercent: 100, duration: 0.6, ease: "power2.out" }, "<"),
-          t.addEventListener("mouseenter", () => {
-            l || n.play();
-          }),
-          t.addEventListener("mouseleave", () => {
-            l || n.reverse();
-          }),
-          t.addEventListener("click", () => {
-            n.reversed(!1).pause(),
-              a.classList.toggle("active"),
-              s.classList.toggle("active"),
-              i.classList.toggle("active");
-            let e = t.itemWrap;
-            e.style.maxHeight
-              ? (e.style.maxHeight = null)
-              : (e.style.maxHeight = e.scrollHeight + "px"),
-              console.log(e),
-              l ? (l = !1) : ((l = !0), n.progress(1));
-          });
-        }
+        l = !1,
+        n = gsap.timeline({ paused: "true", reversed: "true" });
+      n.to(e, { x: 20, duration: 0.6, color: "#25CE5", ease: "power2.out" }),
+        n.to(o, { xPercent: 100, duration: 0.6, ease: "power2.out" }, "<"),
+        n.to(r, { xPercent: 100, duration: 0.6, ease: "power2.out" }, "<"),
+        t.addEventListener("mouseenter", () => {
+          l || n.play();
+        }),
+        t.addEventListener("mouseleave", () => {
+          l || n.reverse();
+        }),
+        t.addEventListener("click", () => {
+          n.reversed(!1).pause(),
+            a.classList.toggle("active"),
+            s.classList.toggle("active"),
+            i.classList.toggle("active");
+          let e = t.itemWrap;
+          e.style.maxHeight
+            ? (e.style.maxHeight = null)
+            : (e.style.maxHeight = e.scrollHeight + "px"),
+            console.log(e),
+            l ? (l = !1) : ((l = !0), n.progress(1));
+        });
     });
-  });
-
-}
-
-function mmApproach800(){
-  if(!document.querySelector(".approach-tab-item") && !document.querySelector(".abaut_left-blok")){
-    return;
-  }
-  mmApproach.add("(max-width: 799px)", () => {
-    let e = selectAll(".approach-tab-item");
-    e.forEach((t) => {
-      t.itemWrap = t.querySelector(".approach-item-content");
-      if(t){
+  }),
+    mmApproach.add("(max-width: 799px)", () => {
+      let e = selectAll(".approach-tab-item");
+      e.forEach((t) => {
+        t.itemWrap = t.querySelector(".approach-item-content");
         t.querySelectorAll(".approach-item-up .is-h3"),
-        t.querySelectorAll(".line-dotter"),
-        t.querySelectorAll(".line-solid"),
-        t.itemWrap;
+          t.querySelectorAll(".line-dotter"),
+          t.querySelectorAll(".line-solid"),
+          t.itemWrap;
         let o = t.querySelector(".plusminus"),
-        r = t.querySelector(".item-icon-text"),
-        a = t.querySelector(".item-icon-text_close");
+          r = t.querySelector(".item-icon-text"),
+          a = t.querySelector(".item-icon-text_close");
         if(o && r && a){
-          t.addEventListener("click", () => {
-            o.classList.toggle("active"),
+        t.addEventListener("click", () => {
+          o.classList.toggle("active"),
             r.classList.toggle("active"),
             a.classList.toggle("active");
-            let e = t.itemWrap;
-            e.style.maxHeight
+          let e = t.itemWrap;
+          e.style.maxHeight
             ? (e.style.maxHeight = null)
             : (e.style.maxHeight = e.scrollHeight + "px");
-          });
-        }
+        });
       }
+      });
     });
-  });
+
 }
+
+
+
 
 
 function pin() {
