@@ -744,7 +744,7 @@ function isughtsItemAn(){
       if(o && t){
         r = e.querySelector(".insights-link"),
         a = gsap.timeline({ paused: "true", reversed: "true" });
-      a.to(t, { scale: 1, duration: 1.4, ease: "power2.inOut" }),
+      a.to(t, { scale: 1, duration: 10, ease: "power2.inOut" }),
         e.addEventListener("mouseenter", () => {
           a.play(),
             o.classList.add("title-underline");
