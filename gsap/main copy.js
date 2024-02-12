@@ -49,14 +49,14 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
     touchs();
     initAwardsHover();
     //splideSlide992();
-    mm992();
+    //mm992();
     initImageParallax();
     moveRect();
     mmParalax();
     moveLogoPattern1();
     moveLogoEmeil1();
     moveLogoEmeil();
-    workGrids();
+    //workGrids();
     splideCards();
     //navColorBg2();
     menuLogic();
@@ -913,7 +913,7 @@ function splideSlide992(){
         var t = e.querySelector(".image img");
         let r = e.querySelector(".link-tilte");
         if(t && r){
-            gsap.set(t, { scale: 1.1, transformOrigin: "center center" }),
+            gsap.set(t, { scale: 1.05, transformOrigin: "center center" }),
             n = gsap.timeline({ paused: "true", reversed: "true" });
           n.to(t, { scale: 1, duration: 1.4, ease: "power2.inOut" }),
             e.addEventListener("mouseenter", () => {
