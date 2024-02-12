@@ -57,7 +57,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
     moveLogoPattern1();
     moveLogoEmeil1();
     moveLogoEmeil();
-    //workGrids();
+    workGrids();
     splideCards();
     //navColorBg2();
     menuLogic();
@@ -1063,7 +1063,11 @@ function resizeInit() {
   init();
 }
 
-let cardItem = selectAll(".works_grid-item"),
+
+
+
+function workGrids(){
+  let cardItem = selectAll(".works_grid-item"),
   img = selectAll(".image img");
 gsap.set(img, { scale: 1.1, transformOrigin: "center center" }),
   cardItem.forEach((e) => {
@@ -1088,47 +1092,6 @@ gsap.set(img, { scale: 1.1, transformOrigin: "center center" }),
           }, 300);
         }
       });
-  });
-
-
-function workGrids(){
-  let cardItem1 = selectAll(".works_grid-item");
-  img1 = selectAll(".image img");
-  if(cardItem1.length == 0 && img1.length == 0){
-    return;
-  }
-  console.log('works');
-  gsap.set(img1, { scale: 1.05, transformOrigin: "center center" }),
-  cardItem1.forEach((e) => {
-    var t = e.querySelector(".image img");
-    let r = e.querySelector(".link-tilte");
-   if(t){
-      n = gsap.timeline({ paused: "true", reversed: "true" });
-     
-        n.to(t, { scale: 1, duration: 1.4, ease: "power2.inOut" });
-      
-      
-        e.addEventListener("mouseenter", () => {
-          n.play(); 
-          if(r){
-           r.classList.add("animate-in");
-          }
-          
-        }),
-        e.addEventListener("mouseleave", () => {
-          n.reverse();
-          if(r){
-            r.classList.add("animate-out"),
-            r.classList.remove("animate-in"),
-            setTimeout(() => {
-              r.classList.remove("animate-out");
-            }, 300);
-          }
-        });
-
-      }
-      
-    
   });
 }
 
