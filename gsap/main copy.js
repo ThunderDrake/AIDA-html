@@ -44,7 +44,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
     //navColorBgLight();
     //navColorBg1();
     splideInit();
-    isughtsItemAn();
+    //isughtsItemAn();
     sliderMainFunc();
     touchs();
     initAwardsHover();
