@@ -753,7 +753,7 @@ function isughtsItemAn(){
             
         }),
         e.addEventListener("mouseleave", () => {
-          a.reverse(),
+          a.reverse();
           if(r){
             r.classList.remove("link-underline");
           }
