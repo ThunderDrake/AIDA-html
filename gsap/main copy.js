@@ -44,19 +44,19 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
     //navColorBgLight();
     //navColorBg1();
     splideInit();
-    //isughtsItemAn();
+    isughtsItemAn();
     sliderMainFunc();
     touchs();
-    //initAwardsHover();
+    initAwardsHover();
     //splideSlide992();
-    //mm992();
+    mm992();
     initImageParallax();
     moveRect();
     mmParalax();
     moveLogoPattern1();
     moveLogoEmeil1();
     moveLogoEmeil();
-    //workGrids();
+    workGrids();
     splideCards();
     //navColorBg2();
     menuLogic();
@@ -744,9 +744,8 @@ function isughtsItemAn(){
       if(o && t){
         r = e.querySelector(".insights-link"),
         a = gsap.timeline({ paused: "true", reversed: "true" });
-      a.to(t, { scale: 1, duration: 10, ease: "power2.inOut" }),
+      a.to(t, { scale: 1, duration: 0.8, ease: "power.inOut" }),
         e.addEventListener("mouseenter", () => {
-          console.log("hi");
           a.play(),
             o.classList.add("title-underline");
             if(r){
@@ -913,7 +912,7 @@ function splideSlide992(){
         var t = e.querySelector(".image img");
         let r = e.querySelector(".link-tilte");
         if(t && r){
-            gsap.set(t, { scale: 1.05, transformOrigin: "center center" }),
+            gsap.set(t, { scale: 1.1, transformOrigin: "center center" }),
             n = gsap.timeline({ paused: "true", reversed: "true" });
           n.to(t, { scale: 1, duration: 1.4, ease: "power2.inOut" }),
             e.addEventListener("mouseenter", () => {
