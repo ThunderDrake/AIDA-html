@@ -1218,10 +1218,6 @@ function navColorBg2() {
 
 //end func 
 
-window.addEventListener("resize", () => {
-  resizeInit();
-});
-
 menuToogle.addEventListener("click", menuClick);
 
 document.addEventListener("DOMContentLoaded", init);
