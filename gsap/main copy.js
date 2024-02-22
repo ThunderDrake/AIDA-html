@@ -1250,3 +1250,11 @@ document.addEventListener("DOMContentLoaded", init);
 
 
 
+const popupAcc = document.querySelector(".touch-form-section");
+if(popupAcc){
+    setTimeout(()=> {
+    popupAcc.style.display = "none";
+    popupAcc.style.opacity = 1;
+    popupAcc.style.pointerEvents = "auto";
+  }, 1000);
+}
