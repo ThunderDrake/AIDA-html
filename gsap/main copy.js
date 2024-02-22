@@ -20,6 +20,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
 
 
   function init() {
+    moveLogoPattern2();
     addbgcolor();
     headerAnimate();
     trysyGsap();
