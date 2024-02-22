@@ -1058,7 +1058,7 @@ function moveLogoPattern2() {
       scrub: 2,
     },
   });
-  e.to(".we-do_section .call-bg-logo-wrap", { xPercent: scroolSpeed(40), transformOrigin: "right center" });
+  e.to(".we-do_section .call-bg-logo-wrap", { xPercent: scroolSpeed(-40), transformOrigin: "right center" });
 }
 
 
