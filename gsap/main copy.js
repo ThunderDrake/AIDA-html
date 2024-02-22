@@ -1029,7 +1029,7 @@ function menuLogic(){
 
 
 function moveLogoPattern1() {
-  if(!document.querySelector(".we-do-it_section") && !document.querySelector(".we-do-email-item_wrap")){
+  if(!document.querySelector(".we-do-it_section") && !document.querySelector(".we-do-it_section")){
     return;
   }
   let e = gsap.timeline({
@@ -1041,7 +1041,7 @@ function moveLogoPattern1() {
       scrub: 2,
     },
   });
-  e.to(".we-do-email-item_wrap .call-bg-logo-wrap", { xPercent: scroolSpeed(40), transformOrigin: "right center" });
+  e.to(".we-do-it_section .call-bg-logo-wrap", { xPercent: scroolSpeed(40), transformOrigin: "right center" });
 }
 
 
