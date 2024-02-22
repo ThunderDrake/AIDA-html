@@ -1029,7 +1029,7 @@ function menuLogic(){
 
 
 function moveLogoPattern1() {
-  if(!document.querySelector(".we-do-it_section") && !document.querySelector(".we-do-it_section")){
+  if(!document.querySelector(".we-do-it_section") && !document.querySelector(".call-bg-logo-wrap")){
     return;
   }
   let e = gsap.timeline({
@@ -1042,6 +1042,22 @@ function moveLogoPattern1() {
     },
   });
   e.to(".we-do-it_section .call-bg-logo-wrap", { xPercent: scroolSpeed(40), transformOrigin: "right center" });
+}
+
+function moveLogoPattern2() {
+  if(!document.querySelector(".we-do_section") && !document.querySelector(".call-bg-logo-wrap")){
+    return;
+  }
+  let e = gsap.timeline({
+    scrollTrigger: {
+      id: "Pattern",
+      trigger: ".we-do_section",
+      start: "top bottom",
+      end: "bottom+=50% top",
+      scrub: 2,
+    },
+  });
+  e.to(".we-do_section .call-bg-logo-wrap", { xPercent: scroolSpeed(40), transformOrigin: "right center" });
 }
 
 
