@@ -66,13 +66,13 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
   }
 
 
-  function scroolSpeed(num){
+  function scroolSpeed(num, trysy){
     if(window.innerWidth > 1920){
       return num * window.innerWidth / 1920;
     } else if(window.innerWidth < 1920){
       return num * 2;
-    } else if(window.innerWidth < 768){
-      return num * 15;
+    } else if(window.innerWidth < 768 && trysy){
+      return num * 50;
     } else{
       return  num;
     }
@@ -166,7 +166,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
           scrub: 1,
         },
       });
-      e.to(".we-do-email-item_wrap" + i, { xPercent: scroolSpeed(-40) });
+      e.to(".we-do-email-item_wrap" + i, { xPercent: scroolSpeed(-40, true) });
     }
   }
 
@@ -1080,7 +1080,7 @@ function moveLogoEmeil1() {
       scrub: 1,
     },
   });
-  e.to(".services_email-wrapper .we-do-email-item_wrap", { xPercent: scroolSpeed(-40) });
+  e.to(".services_email-wrapper .we-do-email-item_wrap", { xPercent: scroolSpeed(-40, true) });
 }
 
 
@@ -1097,7 +1097,7 @@ function moveLogoEmeil() {
       scrub: 1,
     },
   });
-  e.to(".we-do_email-wrapper .we-do-email-item_wrap", { xPercent: scroolSpeed(-40) });
+  e.to(".we-do_email-wrapper .we-do-email-item_wrap", { xPercent: scroolSpeed(-40, true) });
 }
 
 
