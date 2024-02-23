@@ -1045,7 +1045,7 @@ function moveLogoPattern1() {
       scrub: 2,
     },
   });
-  e.to(".we-do-it_section .call-bg-logo-wrap", { xPercent: scroolSpeed(40), transformOrigin: "right center" });
+  e.to(".we-do-it_section .call-bg-logo-wrap", { xPercent: scroolSpeed(-40), transformOrigin: "right center" });
 }
 
 function moveLogoPattern2() {
