@@ -67,9 +67,9 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
 
 
   function scroolSpeed(num, trysy = false){
-    if(window.innerWidth > 1920){
+    if(window.innerWidth > 1920 && (trysy || !trysy)){
       return num * window.innerWidth / 1920;
-    } else if(window.innerWidth < 1920){
+    } else if(window.innerWidth < 1920 && (trysy || !trysy)){
       return num * 2;
     } else if(window.innerWidth < 768 && trysy){
       return num * 100;
