@@ -161,7 +161,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
           scrub: 1,
         },
       });
-      e.to(".we-do-email-item_wrap" + i, { xPercent: scroolSpeed(-25) });
+      e.to(".we-do-email-item_wrap" + i, { xPercent: scroolSpeed(-40) });
     }
   }
 
@@ -1075,7 +1075,7 @@ function moveLogoEmeil1() {
       scrub: 1,
     },
   });
-  e.to(".services_email-wrapper .we-do-email-item_wrap", { xPercent: scroolSpeed(-25) });
+  e.to(".services_email-wrapper .we-do-email-item_wrap", { xPercent: scroolSpeed(-40) });
 }
 
 
@@ -1092,7 +1092,7 @@ function moveLogoEmeil() {
       scrub: 1,
     },
   });
-  e.to(".we-do_email-wrapper .we-do-email-item_wrap", { xPercent: scroolSpeed(-25) });
+  e.to(".we-do_email-wrapper .we-do-email-item_wrap", { xPercent: scroolSpeed(-40) });
 }
 
 
