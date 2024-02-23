@@ -72,7 +72,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
     } else if(window.innerWidth < 1920){
       return num * 2;
     } else if(window.innerWidth < 768){
-      return num * 4;
+      return num * 8;
     } else{
       return  num;
     }
@@ -157,7 +157,7 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
       if(allTrysy[i].querySelector(".we-do-email-item_wrap")){
         allTrysy[i].querySelector(".we-do-email-item_wrap").classList.add("we-do-email-item_wrap" + i);
       }
-    
+      
       let e = gsap.timeline({
         scrollTrigger: {
           trigger: ".moving-text-wrapp" + i,
