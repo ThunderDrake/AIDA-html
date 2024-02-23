@@ -70,9 +70,9 @@ const menuOpen = gsap.timeline({ paused: "true", reversed: "true" });
     if(window.innerWidth > 1920 && (trysy || !trysy)){
       return num * window.innerWidth / 1920;
     } else if(window.innerWidth < 768 && trysy){
-      return num * 200;
+      return num * 10;
     } else{
-      return  num * 3;
+      return  num * 2;
     }
     
   } 
